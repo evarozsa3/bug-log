@@ -2,6 +2,7 @@ import { dbContext } from "../db/DbContext"
 import { BadRequest } from "../utils/Errors"
 
 
+
 class BugService {
   async getAll(userEmail) {
     return await dbContext.Bugs.find({ creatorEmail: userEmail }).populate("creator", "name picture")

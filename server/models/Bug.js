@@ -3,9 +3,11 @@ import { dbContext } from "../db/DbContext"
 let Schema = mongoose.Schema
 let ObjectId = Schema.Types.ObjectId
 
-const Bug = new Schema({
-  title: { type: String, required: true },
+var Bug = new Schema({
+  closed: { type: Boolean, required: true, default: false },
   description: { type: String, required: true },
+  title: { type: String, required: true },
+  closedDate: { type: Date },
   creatorEmail: { type: String, required: true }
 }, { timestamps: true, toJSON: { virtuals: true } })
 
@@ -28,4 +30,4 @@ Bug.virtual("creator",
 //    .catch(err => next(err))
 //})
 
-export default Bug
+export default Bug;
