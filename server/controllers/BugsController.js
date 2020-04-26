@@ -8,7 +8,7 @@ import { bugService } from '../services/BugService';
 //PUBLIC
 export class BugsController extends BaseController {
   constructor() {
-    super("api/boards")
+    super("api/bugs")
     this.router
       .use(auth0provider.getAuthorizedUserInfo)
       .get('', this.getAll)
