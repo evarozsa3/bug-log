@@ -8,7 +8,7 @@ import { noteService } from '../services/NoteService';
 //PUBLIC
 export class NotesController extends BaseController {
   constructor() {
-    super("api/notes")
+    super("api/bugs/:bugId/notes")
     this.router
       .use(auth0provider.getAuthorizedUserInfo)
       .get('', this.getAll)

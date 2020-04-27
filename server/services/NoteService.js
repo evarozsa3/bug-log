@@ -8,6 +8,7 @@ class NoteService {
   }
 
   async getById(id, userEmail) {
+    debugger
     let data = await dbContext.Notes.findById({ _id: id, creatorEmail: userEmail })
     if (!data) {
       throw new BadRequest("Invalid ID or you do not own this board")
