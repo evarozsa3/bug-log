@@ -19,7 +19,7 @@ export class BugsController extends BaseController {
       .delete('/:id', this.delete)
   }
 
-
+  // this is a change
   async getAll(req, res, next) {
     try {
       //only gets boards by user who is logged in
