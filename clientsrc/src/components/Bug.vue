@@ -8,13 +8,14 @@
     >{{bugData.title}}:</router-link>
     <!-- <h5 class="col-10">{{bugData.creatorEmail}}</h5> -->
     <p class="col-8 pt-2 why">{{bugData.description}}</p>
-    <div class="col-1 pl-5">
+    <div class="col-1 pl-5" v-show="bugData.creatorEmail">
       <button class="btn" @click="deleteBug(bugData.id)">
         <h4 class="text-danger">X</h4>
       </button>
     </div>
-    <h5 class="col-9">{{bugData.closed}}</h5>
-    <p class="col-9">Closed date: {{bugData.closedDateAt}}</p>
+    <h5 v-show="bugData.closed" class="col-9">Closed</h5>
+    <h5 v-show="!bugData.closed" class="col-9">Open</h5>
+    <!-- <p class="col-9">Closed date: {{bugData.closedDateAt}}</p> -->
     <p class="col-9 pt-1">Last Update: {{bugData.updatedAt}}</p>
 
     <!-- <div class="col-2 align-right text-right">

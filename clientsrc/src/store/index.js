@@ -73,8 +73,16 @@ export default new Vuex.Store({
       console.log("added bug")
       api.post('bugs/', bugData)
         .then(serverBoard => {
+          // debugger
           dispatch('getBugs', bugData.bugId)
+          // router.push({ name: 'BugDetails' bugData.bugId })
           console.log("added Bug 2")
+        })
+    },
+    editBug({ commit, dispatch }, bug) {
+      api.put('bugs/' + bug.id, bug)
+        .then(res => {
+          commit('setActiveBug', res.data)
         })
     },
     deleteBug({ commit, dispatch }, bugId) {
@@ -94,6 +102,7 @@ export default new Vuex.Store({
 
     async getNotes({ commit, dispatch }, bugId) {
       console.log("Getting notes")
+      //this is getting all notes instead of getnotes by ID. i think the api.get is going to the wrong place.. 
       api.get('bugs/' + bugId + '/notes')
         .then(res => {
           commit('setNotes', res.data)

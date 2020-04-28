@@ -9,7 +9,7 @@
       />-->
       <img class="vuelogo2 mt-4" alt="Vue logo" src="../assets/logo.png" />
       <div class="homeTitle text-warning">
-        <p>WELCOME HOME</p>
+        <!-- <p>WELCOME HOME</p> -->
       </div>
     </div>
     <form class="col-12" @submit.prevent="addBug">
@@ -26,7 +26,7 @@
         placeholder=" description..."
         v-model="newBug.description"
       />
-      <button class="btn btn-secondary border-dark" type="submit">+</button>
+      <button class="btn btn-info border-dark" type="submit">+</button>
     </form>
     <div class="border row">
       <div class="col-12">
@@ -66,7 +66,9 @@ export default {
       this.$store.dispatch("addBug", this.newBug);
       this.newBug = { title: "", description: "" };
       // this.$store.dispatch("setActiveBug", this.newBug);
-      // this.$router.push("bugs/" + this.newBug.id);
+      // debugger;
+      // let myBug = this.$route.params.id;
+      // this.$router.push("bugs/" + myBug);
     }
   }
 };

@@ -30,6 +30,7 @@ export default {
       this.newNote.bugId = this.$route.params.bugId;
       this.$store.dispatch("addNote", this.newNote);
       this.newNote = { content: "", bug: this.$route.params.bugId };
+      // console.log(newNote);
     }
   }
 };
