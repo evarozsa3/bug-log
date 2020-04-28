@@ -1,6 +1,8 @@
 <template>
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <router-link class="navbar-brand" :to="{ name: 'Home' }">AppName</router-link>
+    <router-link class="navbar-brand nav" :to="{ name: 'Home' }">
+      <h3>Bug-Swat</h3>
+    </router-link>
     <button
       class="navbar-toggler"
       type="button"
@@ -61,4 +63,8 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+.nav {
+  font-family: monospace;
+}
+</style>

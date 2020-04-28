@@ -1,10 +1,11 @@
 import { dbContext } from "../db/DbContext"
 import { BadRequest } from "../utils/Errors"
+import { bugService } from "./BugService"
 
 
 class NoteService {
-  async getAll(userEmail) {
-    return await dbContext.Notes.find({ creatorEmail: userEmail }).populate("creator", "name picture")
+  async getAll(userEmail, bugId) {
+    return await dbContext.Notes.find({ bug: bugId, creatorEmail: userEmail }).populate("creator", "name picture")
   }
 
   async getById(id, userEmail) {
@@ -25,6 +26,10 @@ class NoteService {
   // }
 
   async create(rawData) {
+    let bug = await dbContext.Bugs.findById(rawData.bug)
+    if (bug.closed) {
+      throw new BadRequest("cant add a note bug is closed")
+    }
     let data = await dbContext.Notes.create(rawData)
     return data
   }
