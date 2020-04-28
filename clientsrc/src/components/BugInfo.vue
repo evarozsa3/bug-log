@@ -7,17 +7,17 @@
           <button class="btn btn-info" @click="closeBug">Status</button>
         </div>
         <!-- <div v-on:click="activeBug.closed = !activeBug.closed">open/close</div> -->
-        <div v-show="activeBug.closed">•CLOSED</div>
-        <div v-show="!activeBug.closed">•OPEN</div>
+        <div class="close" v-show="activeBug.closed">•CLOSED</div>
+        <div class="open" v-show="!activeBug.closed">•OPEN</div>
       </div>
-      <h5 class="col-4">{{activeBug.creatorEmail}}</h5>
-      <div v-show="!activeBug.closed">
+      <div class="col-12" v-show="!activeBug.closed">
         <form @submit.prevent="editBug()">
           <input class type="text" placeholder="edit bug" v-model="activeBug.description" required />
           <button type="submit">save</button>
         </form>
       </div>
-      <h3 class="col-12">{{activeBug.description}}</h3>
+      <p class="col-12 des">{{activeBug.description}}</p>
+      <p class="col-12 text-right email">{{activeBug.creatorEmail}}</p>
     </div>
   </div>
 </template>
@@ -54,4 +54,17 @@ export default {
 </script>
 
 <style>
+.close {
+  color: rgb(255, 6, 6);
+  text-shadow: 2px 2px 10px rgb(158, 167, 185);
+}
+.des {
+  font-size: 20px;
+  font-family: monospace;
+}
+.email {
+  font-size: 15px;
+  font-weight: bolder;
+  font-family: serif;
+}
 </style>

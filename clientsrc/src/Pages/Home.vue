@@ -28,9 +28,9 @@
       />
       <button class="btn btn-info border-dark" type="submit">+</button>
     </form>
-    <div class="border row">
+    <div class="row">
       <div class="col-12">
-        <bug :bugData="bugInfo" v-for="bugInfo in bugItems" :key="bugInfo.id"></bug>
+        <bug class="bugList" :bugData="bugInfo" v-for="bugInfo in bugItems" :key="bugInfo.id"></bug>
       </div>
     </div>
   </div>
@@ -101,6 +101,10 @@ export default {
   height: 32.2vh;
   background-size: contain;
   position: relative;
+}
+.bugList {
+  background-color: rgba(47, 34, 105, 0.267);
+  box-shadow: 0px 0px 5px 2px rgba(248, 248, 248, 0.603);
 }
 /* .home {
   background-image: url(https://lh3.googleusercontent.com/proxy/EkENFFxRVKAoeWxiItphHV5uwD5SJq96bV7IMsueTlP1ir-lASS_IRX68y4kIYzA5atYbRBTN6OkS_vqO18FY0mCI45gKB51xBhsKD961EXi_zhMcQ);

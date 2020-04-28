@@ -1,12 +1,12 @@
 <template>
   <div class="row">
     <!-- <h2 class="col-10">hello notes</h2> -->
-    <p class="col-11">By: {{noteData.creatorEmail}}</p>
+    <p class="col-11 email">By: {{noteData.creatorEmail}}</p>
     <!-- content of undefined? -->
-    <button @click="deleteNote(noteData.id)" class="btn col-1 pl-5">
+    <button @click="deleteNote(noteData.id)" class="btn col-1 pl-5 email">
       <h4 class="text-danger">X</h4>
     </button>
-    <p class="col-8">{{noteData.content}}</p>
+    <p class="col-8 des">{{noteData.content}}</p>
   </div>
 </template>
 

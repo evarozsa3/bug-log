@@ -1,5 +1,5 @@
 <template>
-  <div class="row m-1 border">
+  <div class="row m-3 border">
     <!-- <h1>I am A bug</h1> -->
     <!-- <h3 class="col-3">{{bugData.title}}:</h3> -->
     <router-link
@@ -8,13 +8,13 @@
     >{{bugData.title}}:</router-link>
     <!-- <h5 class="col-10">{{bugData.creatorEmail}}</h5> -->
     <p class="col-8 pt-2 why">{{bugData.description}}</p>
-    <div class="col-1 pl-5" v-show="bugData.creatorEmail">
+    <div class="col-1 pl-5 email" v-show="bugData.creatorEmail">
       <button class="btn" @click="deleteBug(bugData.id)">
         <h4 class="text-danger">X</h4>
       </button>
     </div>
-    <h5 v-show="bugData.closed" class="col-9">Closed</h5>
-    <h5 v-show="!bugData.closed" class="col-9">Open</h5>
+    <h5 v-show="bugData.closed" class="col-9 closed">Closed</h5>
+    <h5 v-show="!bugData.closed" class="col-9 open">Open</h5>
     <!-- <p class="col-9">Closed date: {{bugData.closedDateAt}}</p> -->
     <p class="col-9 pt-1">Last Update: {{bugData.updatedAt}}</p>
 
@@ -50,5 +50,14 @@ export default {
 }
 .why {
   font-size: 20px;
+  font-family: monospace;
+}
+.open {
+  color: rgb(62, 177, 129);
+  text-shadow: 2px 2px 10px black;
+}
+.closed {
+  color: rgba(240, 6, 6, 0.616);
+  text-shadow: 2px 2px 10px rgb(17, 17, 17);
 }
 </style>
